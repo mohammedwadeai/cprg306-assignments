@@ -77,7 +77,8 @@ const item4 = {
 
   const ItemList = () => {
     return (
-      <ul>
+      <div className="w-full max-w-4xl mx-auto mt-8">
+      <ul className="space-y-4 animate-fadeIn">
         <Item name={item1.name} quantity={item1.quantity} category={item1.category} />
         <Item name={item2.name} quantity={item2.quantity} category={item2.category} />
         <Item name={item3.name} quantity={item3.quantity} category={item3.category} />
@@ -91,6 +92,8 @@ const item4 = {
         <Item name={item11.name} quantity={item11.quantity} category={item11.category} />
         <Item name={item12.name} quantity={item12.quantity} category={item12.category} />
       </ul>
+    </div>
+
     );
   };
   
