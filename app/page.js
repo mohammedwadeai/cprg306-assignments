@@ -1,22 +1,21 @@
-// Home.js
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-r from-indigo-600 to-purple-600 flex flex-col items-center justify-center text-white p-4">
-      <div className="max-w-2xl w-full bg-white/90 backdrop-blur-lg shadow-2xl rounded-2xl p-8 text-gray-800 text-center space-y-6 transform transition duration-500 hover:scale-105">
-        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-teal-400 to-indigo-500">CPRG 306: Web Development 2</h1>
-        <p className="text-xl font-light">Assignments</p>
-        <div className="space-y-4">
-          <Link href="/week-2" className="block py-2 px-6 bg-gradient-to-br from-teal-400 to-emerald-500 text-white font-bold text-lg leading-tight uppercase rounded-full shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-            Click HERE for Week 2
-          </Link>
-          <Link href="/week-3" className="block py-2 px-6 bg-gradient-to-br from-orange-500 to-yellow-500 text-white font-bold text-lg leading-tight uppercase rounded-full shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-            Click HERE for Week 3
-          </Link>
-          <Link href="/week-4" className="block py-2 px-6 bg-gradient-to-br from-pink-500 to-rose-500 text-white font-bold text-lg leading-tight uppercase rounded-full shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-            Click HERE for Week 4
-          </Link>
+    <main className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex flex-col items-center justify-center p-4">
+      <div className="max-w-2xl w-full bg-white/90 backdrop-blur-lg shadow-xl rounded-xl p-8 text-gray-800 text-center space-y-6 transition-all duration-500 hover:scale-[1.03] hover:rotate-[2deg]">
+        <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-pink-500 to-purple-600 animate-pulse">
+          CPRG 306: Web Development 2
+        </h1>
+        <p className="text-xl font-medium mt-2">Discover my Assignments</p>
+        <div className="space-y-4 mt-6">
+          {["week-2", "week-3", "week-4", ].map((week, index) => (
+            <Link className="block py-3 px-6 bg-gradient-to-br from-blue-500 to-green-400 text-white font-bold text-lg leading-tight uppercase rounded-full shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 hover:scale-105" key={index} href={`/${week}`}>
+              
+                Click HERE for {week.replace('-', ' ').toUpperCase()}
+              
+            </Link>
+          ))}
         </div>
       </div>
     </main>
