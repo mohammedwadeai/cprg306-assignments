@@ -1,14 +1,13 @@
+// student-info.js
 import Link from "next/link";
 
 export default function StudentInfo() {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-4">Student Information</h2>
-      <p className="text-lg mb-2">Mohammed Al-wadeai</p>
-      <p className="text-lg">
-        My GitHub is: <Link className="text-blue-500 hover:text-blue-600 font-bold" href="https://github.com/mohammedwadeai"> 
-            mohammedwadeai
-        </Link>
+    <div className="transform transition duration-500 hover:scale-105 cursor-pointer p-6 rounded-xl shadow-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 text-white">
+      <h2 className="text-3xl font-bold mb-4">Student Information</h2>
+      <p className="text-xl mb-2">Mohammed Al-wadeai</p>
+      <p className="text-xl">
+        My GitHub is: <Link href="https://github.com/mohammedwadeai" className="underline font-bold hover:text-blue-300">mohammedwadeai</Link>
       </p>
     </div>
   );
