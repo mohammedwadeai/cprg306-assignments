@@ -7,9 +7,9 @@ export default function Home() {
         <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-pink-500 to-purple-600 animate-pulse">
           CPRG 306: Web Development 2
         </h1>
-        <p className="text-xl font-medium mt-2">Discover my Assignments</p>
+        <p className="text-xl font-medium mt-2 ">Discover my Assignments</p>
         <div className="space-y-4 mt-6">
-          {["week-2", "week-3", "week-4", ].map((week, index) => (
+          {["week-2", "week-3", "week-4", "week-5", "week-5grouping" ].map((week, index) => (
             <Link className="block py-3 px-6 bg-gradient-to-br from-blue-500 to-green-400 text-white font-bold text-lg leading-tight uppercase rounded-full shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 hover:scale-105" key={index} href={`/${week}`}>
               
                 Click HERE for {week.replace('-', ' ').toUpperCase()}
