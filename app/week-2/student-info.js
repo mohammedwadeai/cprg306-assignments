@@ -7,7 +7,7 @@ export default function StudentInfo() {
       <h2 className="text-4xl font-extrabold mb-4 tracking-tight">Student Information</h2>
       <p className="text-xl mb-4 font-medium">Mohammed Al-wadeai</p>
       <p className="text-lg">
-        My GitHub is: <Link className="underline font-semibold hover:text-purple-300" href="https://github.com/mohammedwadeai">mohammedwadeai</Link>
+        My GitHub is: <Link className="underline text-red-600 font-semibold hover:text-purple-300" href="https://github.com/mohammedwadeai">mohammedwadeai</Link>
       </p>
       <div><Link className="mt-5 ml-12 relative inline-flex items-center justify-center px-6 py-3 font-semibold rounded-full overflow-hidden group bg-gradient-to-br from-blue-500 to-green-400 text-white shadow-lg transition-all duration-300 ease-out hover:from-pink-500 hover:to-yellow-500 hover:scale-110" href="/">
           
