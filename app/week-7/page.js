@@ -1,18 +1,25 @@
 //page.js
 "use client";
-import React, { useState } from 'react'; 
+
+import React, { useState } from 'react';
 import Link from 'next/link';
-import ItemList from './item-list'; 
-import NewItem from './new-item'; 
-import itemsData from './items.json'; 
+import ItemList from './item-list';
+import NewItem from './new-item';
+import MealIdeas from './meal-ideas'; 
+import itemsData from './items.json';
 
 const Page = () => {
   const [items, setItems] = useState(itemsData);
+  const [selectedItemName, setSelectedItemName] = useState(""); 
 
   const handleAddItem = (newItem) => {
     setItems(currentItems => [...currentItems, newItem]);
   };
 
+  const handleItemSelect = (item) => {
+    const cleanedItemName = item.name.replace(/,.*|\s\W.*$/g, '');
+    setSelectedItemName(cleanedItemName);
+  };
   return (
     <main className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-8">
       <div className="flex justify-end mb-8">
@@ -25,15 +32,16 @@ const Page = () => {
           <span className="absolute inset-0 bg-white bg-opacity-20 group-hover:bg-opacity-0 transition-opacity duration-300"></span>
         </Link>
       </div>
-      <div className="flex flex-col lg:flex-row items-start  justify-start ml- gap-1">
-
-        <div className="w-full lg:w-1/4 pl-5 ml-9">
+      <div className="flex flex-col lg:flex-row justify-between">
+        <div className="flex flex-col w-full lg:w-1/2">
           <NewItem onAddItem={handleAddItem} />
+          <ItemList items={items} onItemSelect={handleItemSelect} />
+        </div>
+        
+        <div className="w-full lg:w-1/2">
+          {selectedItemName && <MealIdeas ingredient={selectedItemName} />}
         </div>
 
-        <div className="w-full mr-9 lg:w-3/4 ">
-          <ItemList items={items} />
-        </div>
       </div>
     </main>
   );

@@ -1,10 +1,9 @@
-//item-list.js
 "use client";
 
 import React, { useState } from 'react';
 import Item from './item';
 
-const ItemList = ({ items: initialItems }) => { 
+const ItemList = ({ items: initialItems, onItemSelect }) => { 
   const [sortBy, setSortBy] = useState("name");
 
   const sortAndGroupItems = () => {
@@ -42,7 +41,13 @@ const ItemList = ({ items: initialItems }) => {
           <h3 className="text-2xl font-bold capitalize mb-4">{category}</h3>
           <ul className="space-y-4 animate-fadeIn">
             {items.map(item => (
-              <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
+              <Item 
+                key={item.id} 
+                name={item.name} 
+                quantity={item.quantity} 
+                category={item.category} 
+                onSelect={() => onItemSelect(item)}
+              />
             ))}
           </ul>
         </div>
@@ -51,7 +56,13 @@ const ItemList = ({ items: initialItems }) => {
       return (
         <ul className="space-y-4 animate-fadeIn">
           {items.map(item => (
-            <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
+            <Item 
+              key={item.id} 
+              name={item.name} 
+              quantity={item.quantity} 
+              category={item.category} 
+              onSelect={() => onItemSelect(item)}
+            />
           ))}
         </ul>
       );
