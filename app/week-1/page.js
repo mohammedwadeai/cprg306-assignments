@@ -105,7 +105,7 @@ const FreePalestine = () => {
 
         {/* Dynamically appearing content */}
         <motion.div variants={itemVariants}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Understanding the Conflict:</h2>
+          <h2 classNa54me="text-3xl md:text-4xl font-bold mb-4">Understanding the Conflict:</h2>
                   </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -41,6 +41,7 @@ body {
       transform: translateY(0);
     }
   }
+  
 
   .animate-fadeIn {
     animation: fadeIn 1s ease-out forwards;

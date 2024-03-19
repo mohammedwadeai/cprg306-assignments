@@ -1,7 +1,9 @@
 //page.js
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useUserAuth } from '../_utils/auth-context';
 import Link from 'next/link';
 import ItemList from './item-list';
 import NewItem from './new-item';
@@ -9,8 +11,20 @@ import MealIdeas from './meal-ideas';
 import itemsData from './items.json';
 
 const Page = () => {
+  const { user } = useUserAuth();
+  const router = useRouter();
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState(""); 
+
+  useEffect(() => {
+    if (!user) {
+      router.push('/week-8/page');
+    }
+  }, [user, router]);
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   const handleAddItem = (newItem) => {
     setItems(currentItems => [...currentItems, newItem]);
