@@ -14,7 +14,7 @@
     "encoding": "^0.1.13",
     "firebase": "^10.9.0",
     "framer-motion": "^11.0.8",
-    "next": "14.1.0",
+    "next": "^14.2.0-canary.52",
     "react": "^18",
     "react-dom": "^18"
   },
