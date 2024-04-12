@@ -1,7 +1,6 @@
 //page.js
 "use client";
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, { useEffect , useState } from 'react';
 import { useUserAuth } from '../_utils/auth-context';
 import Link from 'next/link';
 import ItemList from './item-list';
@@ -11,15 +10,9 @@ import itemsData from './items.json';
 
 const Page = () => {
   const { user } = useUserAuth();
-  const router = useRouter();
   const [items, setItems] = useState(itemsData);
   const [selectedItemName, setSelectedItemName] = useState(""); 
 
-  useEffect(() => {
-    if (!user) {
-      router.push('/week-8/page');
-    }
-  }, [user, router]);
 
   if (!user) {
     return <div>Loading...</div>;
@@ -30,7 +23,7 @@ const Page = () => {
   };
 
   const handleItemSelect = (item) => {
-    const cleanedItemName = item.name.replace(/,.*|\s\W.*$/g, '');
+    const cleanedItemName = item.name.replace(/,.|\s\W.$/g, '');
     setSelectedItemName(cleanedItemName);
   };
 

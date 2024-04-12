@@ -37,7 +37,7 @@ const LandingPage = () => {
           </button>
           <div className="mt-4">
             
-            <a href="/week-8/shopping-list" className="inline-block px-6 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 transition-colors duration-200" >
+            <a href="/week-10/shopping-list" className="inline-block px-6 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 transition-colors duration-200" >
                 Go to Shopping List
             </a>
           </div>

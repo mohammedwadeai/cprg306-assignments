@@ -1,20 +1,16 @@
 //page.js
 "use client";
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useRouter } from 'next/navigation';
+import React from 'react';
 import { useUserAuth } from '../_utils/auth-context';
 import Link from 'next/link';
 import ItemList from './item-list';
 import NewItem from './new-item';
 import MealIdeas from './meal-ideas'; 
 import { useEffect, useState } from 'react'; 
-import { useUserAuth } from '../_utils/auth-context';
 import { getItems, addItem } from '../_services/shopping-list-service'; 
 
 const Page = () => {
   const { user } = useUserAuth();
-  const router = useRouter();
   // Initialize items state as empty array since we will fetch them from Firestore
   const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState("");
@@ -28,10 +24,8 @@ const Page = () => {
       };
 
       loadItems().catch(console.error);
-    } else {
-      router.push('../week-10/page'); 
     }
-  }, [user, router]);
+  }, [user]);
 
   const handleAddItem = async (newItem) => {
     if (user) {
@@ -41,7 +35,7 @@ const Page = () => {
   };
 
   const handleItemSelect = (item) => {
-    const cleanedItemName = item.name.replace(/,.*|\s\W.*$/g, '');
+    const cleanedItemName = item.name.replace(/,.|\s\W.$/g, '');
     setSelectedItemName(cleanedItemName);
   };
 
